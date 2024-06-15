@@ -1,0 +1,37 @@
+name: 'Ferris'
+on: workflow_dispatch
+jobs:
+  build:
+    #if: github.repository_owner == 'manna-harbour'
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["nice_nano"]'
+      shield: '["cradio_left"]'
+      alphas: '["qwerty"]'
+      tap: '["qwerty"]'
+      nav: '["vi"]'
+      custom_config: '["
+        #define MIRYOKU_KLUDGE_MOUSEKEYSPR \n
+        #define MIRYOKU_LAYER_BASE
+        &kp Q,             &kp W,             &kp E,             &kp R,             &kp T,             &kp Y,             &kp U,             &kp I,             &kp O,             &kp P,
+        U_MT(LGUI, A),     U_MT(LALT, S),     U_MT(LCTRL, D),    U_MT(LSHFT, F),    &kp G,             &kp H,             U_MT(LSHFT, J),    U_MT(LCTRL, K),    U_MT(LALT, L),     U_MT(LGUI, SQT),
+        &kp Z,             &kp  X,            &kp C,             &kp V,             &kp B,             &kp N,             &kp M,             &kp COMMA,         &kp  DOT,          &kp  SLASH,
+        U_NP,              U_NP,              U_LT(U_MEDIA, TAB),U_LT(U_NAV, ESC),U_LT(U_MOUSE, BSPC),U_LT(U_SYM, SPACE),  U_LT(U_NUM, RET), U_LT(U_FUN, DEL),  U_NP,              U_NP  \n
+
+        #define MIRYOKU_LAYER_NUM
+        &kp LBKT,          &kp RBKT,          &kp N7,            &kp N8,            &kp N9,            U_NA,              &u_to_U_BASE,      &u_to_U_EXTRA,     &u_to_U_TAP,       U_BOOT,
+        &kp SEMI,          &kp EQUAL,         &kp N4,            &kp N5,            &kp N6,            U_NA,              &kp LSHFT,         &kp LCTRL,         &kp LALT,          &kp LGUI,
+        &kp GRAVE,         &kp BSLH,          &kp N1,            &kp N2,            &kp N3,            U_NA,              &u_to_U_NUM,       &u_to_U_NAV,       &kp RALT,          U_NA,
+        U_NP,              U_NP,              &kp DOT,           &kp N0,            &kp MINUS,         U_NA,              U_NA,              U_NA,              U_NP,              U_NP  \n
+
+        #define MIRYOKU_LAYER_SYM
+        &kp LBRC,          &kp RBRC,          &kp AMPS,          &kp ASTRK,         &kp LPAR,          U_NA,              &u_to_U_BASE,      &u_to_U_EXTRA,     &u_to_U_TAP,       U_BOOT,
+        &kp COLON,         &kp PLUS,          &kp DLLR,          &kp PRCNT,         &kp CARET,         U_NA,              &kp LSHFT,         &kp LCTRL,         &kp LALT,          &kp LGUI,
+        &kp TILDE,         &kp PIPE,          &kp EXCL,          &kp AT,            &kp HASH,          U_NA,              &u_to_U_SYM,       &u_to_U_MOUSE,     &kp RALT,          U_NA,
+        U_NP,              U_NP,              &kp LPAR,          &kp RPAR,          &kp UNDER,         U_NA,              U_NA,              U_NA,              U_NP,              U_NP
+        "]'
+      kconfig: '[
+        "CONFIG_ZMK_MOUSE=y",
+      ]'
+      branches: '["petejohanson/zmk/feat/pointers-move-scroll","zmkfirmware/zmk/main petejohanson/zmk/feat/pointers-move-scroll"]'
