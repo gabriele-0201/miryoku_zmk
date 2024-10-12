@@ -35,4 +35,6 @@ jobs:
       kconfig: '[
         "CONFIG_ZMK_MOUSE=y",
       ]'
-      branches: '["petejohanson/zmk/feat/pointers-move-scroll","zmkfirmware/zmk/main petejohanson/zmk/feat/pointers-move-scroll"]'
+      # currently petejohanson is broken, use this instead
+      #branches: '["petejohanson/zmk/feat/pointers-move-scroll","zmkfirmware/zmk/main petejohanson/zmk/feat/pointers-move-scroll"]'
+      branches: '["petejohanson/zmk/feat/pointers-move-scroll","caksoylar/zmk/feat/mouse-keys-3.2"]'
