@@ -33,7 +33,7 @@ jobs:
           U_NP,              U_NP,              &kp LPAR,          &kp RPAR,          &kp UNDER,         U_NA,              U_NA,              U_NA,              U_NP,              U_NP
       "]'
       kconfig: '[
-        "CONFIG_ZMK_MOUSE=y",
+        "CONFIG_ZMK_MOUSE=y\nCONFIG_ZMK_BLE_EXPERIMENTAL_FEATURES=y",
       ]'
       # currently petejohanson is broken, use this instead
       #branches: '["petejohanson/zmk/feat/pointers-move-scroll","zmkfirmware/zmk/main petejohanson/zmk/feat/pointers-move-scroll"]'
